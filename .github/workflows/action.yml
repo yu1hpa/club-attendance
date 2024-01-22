@@ -1,0 +1,13 @@
+name: Scheduled build
+
+on:
+  schedule:
+    - cron: '15 * * * *'
+
+jobs:
+  send:
+    name: send
+    runs-on: ubuntu-22.04
+    steps:
+      - name: curl
+        run: curl -H "Content-Type: application/json" -X POST -d {"content": "Hi"} "${{ secrets.WEBHOOK_URL }}"
