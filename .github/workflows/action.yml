@@ -10,4 +10,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: curl
-        run: curl -H "Content-Type: application/json" -X POST -d '{"content": "Hi"}' "${{ secrets.WEBHOOK_URL }}"
+        run: |
+          curl -X POST -H "Content-Type: application/json" -d '{"content": "Hi"}' "${{ secrets.WEBHOOK_URL }}"
+
